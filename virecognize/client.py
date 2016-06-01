@@ -3,9 +3,11 @@ from .bind import bind_method
 
 
 class ViRecognitionAPI(object):
-    def __init__(self, access_key, secret_key):
-        # self.host = "http://virecognition.visenze.com/"
-        self.host = 'http://119.81.18.174:8082/'
+    def __init__(self, access_key, secret_key, host=None):
+        if not host:
+            self.host = "http://virecognition.visenze.com/"
+        else:
+            self.host = host
         self.access_key = access_key
         self.secret_key = secret_key
         self.auth_info = HTTPBasicAuth(self.access_key, self.secret_key)
