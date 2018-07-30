@@ -13,7 +13,7 @@ class ViRecognitionAPI(object):
         self.auth_info = HTTPBasicAuth(self.access_key, self.secret_key)
 
     def image_recognize(self, url, tag_group):
-        path = 'image/recognize'
+        path = 'v1/image/recognize'
         method = 'POST'
         raw_parameters = {
             'url': url,
@@ -21,26 +21,4 @@ class ViRecognitionAPI(object):
         }
         # parameters = build_parameters(path, raw_parameters)
         resp = bind_method(self, path, method, raw_parameters)
-        return resp
-
-    def video_recognize(self, url, tag_group):
-        path = 'video/recognize_async'
-        method = 'POST'
-        raw_parameters = {
-            'url': url,
-            'tag_group': tag_group
-        }
-        # parameters = build_parameters(path, raw_parameters)
-        resp = bind_method(self, path, method, raw_parameters)
-        return resp
-
-    def video_enquiry(self, transaction_id):
-        path = 'video/enquiry'
-        method = 'GET'
-        raw_parameters = {
-            'transaction_id': transaction_id
-        }
-        # parameters = build_parameters(path, raw_parameters)
-        resp = bind_method(self, path, method, raw_parameters)
-
         return resp
